@@ -1,0 +1,15 @@
+.next
+node_modules
+.DS_Store
+dev.db
+
+# Generated log files
+*.log
+.now
+.vercel
+.env
+.idea
+out
+dist
+
+sitemap.xml
