@@ -1,12 +1,3 @@
-# [Work From Here](https://workfromhere.io)
-### [Work From Here Stagging](https://workfromhere.vercel.app)
+# [NomadStation - maps](https://maps.nomadstation.io?lat=-8.639900207519531&lng=115.14360809326172)
 
-
-#### Dev start
-* First time?  
-`npm i && npm run init`
-* Start dev server  
-`npm run start`
-
-
-
+## TBD

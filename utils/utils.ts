@@ -9,3 +9,11 @@ export const randomNumber = (min: number, max: number) => {
 
 export const pxToRem = (...amounts: number[]) =>
   amounts.map((amount) => `${amount / 16}${amount ? 'rem' : ''}`).join(' ')
+
+export const getPlaceUrl = (id: string) => {
+  return `https://nomadstation.io/raw-place/${id}`
+}
+
+export const isObject = (obj: any) => {
+  return obj && typeof obj === 'object' && obj.constructor === Object
+}

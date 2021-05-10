@@ -1,56 +1,19 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import NextErrorComponent, { ErrorProps } from 'next/error'
+import * as Sentry from '@sentry/browser'
 import { NextPage } from 'next'
 
-import { pxToRem } from '../utils/utils'
-
-const Wrap = styled.div`
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`
-
-const Code = styled.h1(
-  ({ theme }) => css`
-    width: 100%;
-    text-align: center;
-    font-size: ${pxToRem(42)};
-    color: ${theme.color.dark};
-    margin: 0 0 1rem;
-  `,
-)
-
-const Title = styled.h1(
-  ({ theme }) => css`
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    font-size: ${pxToRem(34)};
-    color: ${theme.color.dark};
-  `,
-)
-
-type Props = {
-  statusCode?: number
-  text?: string
+type Props = ErrorProps & {
+  err: Error | undefined | null
 }
 
-const Error: NextPage<Props> = ({
-  statusCode = 500,
-  text = 'Unexpected error',
-}) => {
-  return (
-    <Wrap>
-      <Code>{statusCode}</Code>
-      {text && <Title>{text}</Title>}
-    </Wrap>
-  )
+const MyError: NextPage<Props> = ({ statusCode, err }) => {
+  if (err) {
+    Sentry.captureException(err)
+  }
+  return <NextErrorComponent statusCode={statusCode} />
 }
-
-export default Error
+MyError.getInitialProps = async (context) => {
+  const errorInitialProps = await NextErrorComponent.getInitialProps(context)
+  return { ...errorInitialProps, err: context.err }
+}
+export default MyError

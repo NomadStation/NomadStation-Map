@@ -11,5 +11,6 @@ dev.db
 .idea
 out
 dist
+.env.local
 
 sitemap.xml

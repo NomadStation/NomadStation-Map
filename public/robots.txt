@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://maps.nomadstation.io/sitemap.xml

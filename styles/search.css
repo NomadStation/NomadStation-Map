@@ -1,0 +1,32 @@
+
+@layer components {
+div.search_select {
+    @apply z-10 absolute w-auto left-1 right-1 top-1 sm:top-4 sm:left-4 sm:right-auto sm:w-72 lg:w-96
+}
+
+div.search_select.full {
+    @apply top-1 left-1 right-1 w-auto
+}
+
+div.search_select__control {
+    @apply bg-white shadow-md rounded
+}
+
+.search_select__input input {
+    opacity: 1 !important;
+}
+
+div.search_select__menu {
+    @apply border-0 bg-white shadow-md m-0 mt-1
+}
+
+div.search_select__menu-notice {
+    @apply text-left
+}
+
+div.search_select__dropdown-indicator,
+span.search_select__indicator-separator {
+    @apply hidden
+}
+
+}

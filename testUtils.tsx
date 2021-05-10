@@ -1,11 +1,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
 import '@testing-library/jest-dom/extend-expect'
 import { Form, Formik } from 'formik'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { theme } from './themes'
+jest.mock('next/image', () => (props: any) => React.createElement('img', props))
 
 jest.mock('next/link', () => ({ children, href }: any) =>
   React.Children.map(children, (child) =>
@@ -43,7 +42,7 @@ export const mockRequest = (
 }
 
 const AllTheProviders: React.FC = ({ children }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return <>{children}</>
 }
 
 export const FORM_ID = 'form'
