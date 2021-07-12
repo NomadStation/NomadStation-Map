@@ -52,6 +52,7 @@ export const Search: React.FC<Props> = ({
       inputValue={value}
       onInputChange={onInputChange}
       value={null}
+      filterOption={() => true}
       isValidNewOption={() => false}
     />
   )
