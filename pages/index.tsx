@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({}) => {
     data && data.length > 0 ? 'bottom-12 sm:bottom-0' : ''
 
   return (
-    <div className="absolute left-0 top-0 w-full h-full overflow-hidden">
+    <div className="fixed left-0 top-0 w-full h-full overflow-hidden">
       <MapKit
         className={bottomOffsetClass}
         pointers={data}
