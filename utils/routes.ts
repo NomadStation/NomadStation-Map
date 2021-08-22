@@ -4,6 +4,8 @@ import { LAT_QUERY, LNG_QUERY, PLACE_ID_QUERY } from './constants'
 import querystring from 'querystring'
 import { isObject } from './utils'
 
+export const NOMAD_STATION_URL = 'https://nomadstation.io'
+
 export const getQueryParams = (url: string) => {
   if (url === '') {
     return {}
@@ -31,7 +33,7 @@ export const updateQueryParams = (query: string, router: NextRouter) => {
     throw new Error('Query and router must be defined')
   }
   const queryPath = query ? `?${query}` : ''
-  return router.push(queryPath, queryPath, { shallow: true })
+  return router.replace(queryPath, queryPath, { shallow: true })
 }
 
 export const getAxisQueryParams = (

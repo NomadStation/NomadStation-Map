@@ -12,6 +12,7 @@ import {
 
 describe('Routes', () => {
   const routerMock: any = {
+    replace: jest.fn(),
     push: jest.fn(),
   }
   describe('getQueryParams', () => {
@@ -54,19 +55,19 @@ describe('Routes', () => {
     })
 
     it('empty', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       updateQueryParams('', routerMock)
       const expected = ``
-      expect(routerMock.push).toBeCalledWith(expected, expected, {
+      expect(routerMock.replace).toBeCalledWith(expected, expected, {
         shallow: true,
       })
     })
 
     it('simple', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       updateQueryParams('a=b&b=a', routerMock)
       const expected = `?a=b&b=a`
-      expect(routerMock.push).toBeCalledWith(expected, expected, {
+      expect(routerMock.replace).toBeCalledWith(expected, expected, {
         shallow: true,
       })
     })
@@ -140,10 +141,10 @@ describe('Routes', () => {
     })
 
     it('simple', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       updateAxisQueryParams(0, 0, routerMock)
       const expectedQuery = `?${LAT_QUERY}=0&${LNG_QUERY}=0`
-      expect(routerMock.push).toBeCalledWith(expectedQuery, expectedQuery, {
+      expect(routerMock.replace).toBeCalledWith(expectedQuery, expectedQuery, {
         shallow: true,
       })
     })
@@ -165,28 +166,28 @@ describe('Routes', () => {
     })
 
     it('empty', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       removePlaceIDFromQuery('', routerMock)
       const expectedQuery = ''
-      expect(routerMock.push).toBeCalledWith(expectedQuery, expectedQuery, {
+      expect(routerMock.replace).toBeCalledWith(expectedQuery, expectedQuery, {
         shallow: true,
       })
     })
 
     it('simple', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       removePlaceIDFromQuery('id=123', routerMock)
       const expectedQuery = ``
-      expect(routerMock.push).toBeCalledWith(expectedQuery, expectedQuery, {
+      expect(routerMock.replace).toBeCalledWith(expectedQuery, expectedQuery, {
         shallow: true,
       })
     })
 
     it('with other params', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       removePlaceIDFromQuery('id=123&key=1', routerMock)
       const expectedQuery = `?key=1`
-      expect(routerMock.push).toBeCalledWith(expectedQuery, expectedQuery, {
+      expect(routerMock.replace).toBeCalledWith(expectedQuery, expectedQuery, {
         shallow: true,
       })
     })
@@ -230,10 +231,10 @@ describe('Routes', () => {
     })
 
     it('with other params', () => {
-      routerMock.push.mockClear()
+      routerMock.replace.mockClear()
       updateQueryWithPlaceId('987', 'id=123&key=1', routerMock)
       const expectedQuery = `?${PLACE_ID_QUERY}=987&key=1`
-      expect(routerMock.push).toBeCalledWith(expectedQuery, expectedQuery, {
+      expect(routerMock.replace).toBeCalledWith(expectedQuery, expectedQuery, {
         shallow: true,
       })
     })

@@ -7,6 +7,7 @@ import MapKit from '../components/MapKit/MapKit'
 import { MapkitSearch } from '../components/Search/MapkitSearch'
 import { Panel } from '../components/Panel/Panel'
 import { LAT_QUERY, LNG_QUERY, PLACE_ID_QUERY } from '../utils/constants'
+import { TopLogo } from '../components/TopLogo'
 
 type Props = {}
 
@@ -23,6 +24,7 @@ const Home: NextPage<Props> = ({}) => {
 
   return (
     <div className="fixed left-0 top-0 w-full h-full overflow-hidden">
+      <TopLogo />
       <MapKit
         className={bottomOffsetClass}
         pointers={data}

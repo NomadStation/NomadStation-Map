@@ -7,7 +7,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'max-len': ['error', { code: 120 }],
     curly: ['error'],
     'import/order': [
       'error',

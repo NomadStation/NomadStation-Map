@@ -1,3 +1,5 @@
+import { NOMAD_STATION_URL } from './routes'
+
 export const convertRemToPixels = (rem: number) => {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
 }
@@ -11,7 +13,7 @@ export const pxToRem = (...amounts: number[]) =>
   amounts.map((amount) => `${amount / 16}${amount ? 'rem' : ''}`).join(' ')
 
 export const getPlaceUrl = (id: string) => {
-  return `https://nomadstation.io/raw-place/${id}`
+  return `${NOMAD_STATION_URL}/raw-place/${id}`
 }
 
 export const isObject = (obj: any) => {

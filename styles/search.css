@@ -1,7 +1,7 @@
 
 @layer components {
 div.search_select {
-    @apply z-10 absolute w-auto left-1 right-1 top-1 sm:top-4 sm:left-4 sm:right-auto sm:w-72 lg:w-96
+    @apply z-10 absolute w-auto left-1 right-1 sm:left-1 top-14 sm:top-20 sm:right-auto sm:w-72 lg:w-96
 }
 
 div.search_select.full {

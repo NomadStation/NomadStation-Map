@@ -34,11 +34,11 @@ export const SidePanel: React.FC<Props> = ({
         'bottom-0',
         'sm:w-72',
         'lg:w-96',
-        'sm:h-3/4',
+        'sm:h-3/5',
         'sm:bottom-auto',
         'sm:-translate-y-1/2',
         isOpen
-          ? 'top-12 sm:top-1/2 sm:left-4'
+          ? 'top-24 sm:top-1/2 sm:left-1'
           : 'top-full sm:top-1/2 sm:-left-72 lg:-left-96',
       ].join(' ')}
     >
